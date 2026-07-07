@@ -16,6 +16,8 @@ public class AuthorizationTest extends BaseTest {
         authorizationPage.openPage()
                 .typeuserName(login)
                 .typepassword(password)
-                .clickButton();
+                .clickButton()
+                .checkUserName(fullUserName);
+
     }
 }
