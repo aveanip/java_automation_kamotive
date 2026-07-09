@@ -5,35 +5,32 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import pages.AuthorizationPage;
+import pages.HomePage;
+import supp.SupplyPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static tests.testsdata.TestData.*;
 
 public class BaseTest {
+    AuthorizationPage authorizationPage = new AuthorizationPage();
+    HomePage homePage = new HomePage();
+    SupplyPage supplyPage = new SupplyPage();
 
+//    @BeforeEach
+//    public void setUp() {
+//        authorizationPage.successfulAuthorizationWithValidDataTest();
+//    }
 
-
-    @BeforeEach
-    public void setUp() {
-
-        AuthorizationPage authorizationPage = new AuthorizationPage();
-       authorizationPage.openPage()
-                .typeuserName(login)
-                .typepassword(password)
-                .clickButton()
-               .checkUserName(fullUserName);
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = baseUrl;
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
     }
 
-        @BeforeAll
-        static void beforeAll() {
-            Configuration.baseUrl = "https://test.kamotive.ru";
-            Configuration.browser = "chrome";
-            Configuration.browserSize = "1920x1080";
-        }
+    @AfterEach
+    void afterEach() {
 
-        @AfterEach
-        void afterEach() {
-
-            closeWebDriver();
-        }
+        closeWebDriver();
+    }
 }

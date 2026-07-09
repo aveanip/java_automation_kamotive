@@ -2,20 +2,46 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import java.time.Duration;
 
-public class AuthorizationPage {
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
-    private final SelenideElement userNameInput = $("input[name='username']");
-    private final SelenideElement passswordNameInput = $("input[type='password']");
-    private final SelenideElement signInButton = $(".host-1ctxyfa-buttons");
-    private final SelenideElement fullUserName =
-            $(".MuiTypography-root.MuiTypography-h5.host-ytiac7-fullNameTypography");
+public class AuthorizationPage extends BasePage{
+
+    private String pageUrl = "/sign-in/kamotive";
+    private final SelenideElement
+            loginFromTitle = $$("h3").first(),
+            authorizationForm = $(".host-dxql6n-form"),
+            userNameInput = $("input[name='username']"),
+            passswordNameInput = $("input[type='password']"),
+            signInButton = $(".host-1ctxyfa-buttons"),
+            errorMessage = $(".host-1m94vb6-errorMessage");
 
     public AuthorizationPage openPage() {
-        open("/sign-in/kamotive");
+        open(pageUrl);
+        checkAuthoruzationPageIsOpened();
+        return this;
+    }
+
+    public AuthorizationPage checkAuthoruzationPageIsOpened() {
+        authorizationForm.shouldBe(visible);
+
+        return this;
+    }
+
+//    public AuthorizationPage checkPageDisappeared() {
+//        webdriver().shouldNotHave(urlContaining(pageUrl));
+//        authorizationForm.should(disappear);
+//        return this;
+//    }
+
+    public AuthorizationPage checkTitleText(String value) {
+        loginFromTitle.shouldHave(text(value));
 
         return this;
     }
@@ -32,15 +58,25 @@ public class AuthorizationPage {
         return this;
     }
 
+    public HomePage login (String userName, String password){
+        typeuserName(userName);
+        typepassword(password);
+        clickButton();
+
+        return new HomePage();
+    }
+
+
     public AuthorizationPage clickButton() {
         signInButton.click();
 
         return this;
     }
 
-    public AuthorizationPage checkUserName(String value) {
-        fullUserName.shouldBe(Condition.text(value));
+    public AuthorizationPage checkErrorMessage(String message) {
+        errorMessage.shouldHave(text(message));
 
         return this;
     }
+
 }
