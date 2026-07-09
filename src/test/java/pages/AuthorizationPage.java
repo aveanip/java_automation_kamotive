@@ -9,7 +9,9 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
+import static tests.testsdata.TestData.baseUrl;
 
 public class AuthorizationPage extends BasePage{
 
@@ -29,6 +31,7 @@ public class AuthorizationPage extends BasePage{
     }
 
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
+        webdriver().shouldHave(url(baseUrl + pageUrl));
         authorizationForm.shouldBe(visible);
 
         return this;
