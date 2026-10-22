@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string"
+        },
+        "expires_in": {
+            "type": "integer"
+        },
+        "refresh_expires_in": {
+            "type": "integer"
+        },
+        "refresh_token": {
+            "type": "string"
+        },
+        "token_type": {
+            "type": "string"
+        },
+        "id_token": {
+            "type": "null"
+        },
+        "not-before-policy": {
+            "type": "integer"
+        },
+        "session_state": {
+            "type": "string"
+        },
+        "scope": {
+            "type": "string"
+        },
+        "error": {
+            "type": "null"
+        },
+        "error_description": {
+            "type": "null"
+        },
+        "error_uri": {
+            "type": "null"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "access_token",
+        "expires_in",
+        "refresh_expires_in",
+        "refresh_token",
+        "token_type",
+        "not-before-policy",
+        "session_state",
+        "scope"
+    ]
+}

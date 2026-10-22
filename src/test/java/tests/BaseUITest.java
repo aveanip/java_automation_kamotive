@@ -11,19 +11,25 @@ import supp.SupplyPage;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static tests.testsdata.TestData.*;
 
-public class BaseTest {
+public class BaseUITest {
     AuthorizationPage authorizationPage = new AuthorizationPage();
     HomePage homePage = new HomePage();
     SupplyPage supplyPage = new SupplyPage();
 
-//    @BeforeEach
-//    public void setUp() {
-//        authorizationPage.successfulAuthorizationWithValidDataTest();
-//    }
+    @BeforeEach
+    public void setUp() {
+            authorizationPage
+                    .openPage()
+                    .checkTitleText(title)
+                    .login(login, password)
+                    .checkHomePageIsOpened()
+                    .header.checkFullName(fullUserName);
+    }
 
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = baseUrl;
+
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
     }
