@@ -1,10 +1,9 @@
-package tests;
+package tests.utils;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import tests.testsdata.TestData;
-import tests.utils.RandomUtils;
+import tests.UI.TestData;
 
 
 import java.util.stream.Stream;

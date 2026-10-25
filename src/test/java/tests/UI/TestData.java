@@ -1,11 +1,8 @@
-package tests.testsdata;
+package tests.UI;
 
 import com.github.javafaker.Faker;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.util.stream.Stream;
 
 public class TestData {
 

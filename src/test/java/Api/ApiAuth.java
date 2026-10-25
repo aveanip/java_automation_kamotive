@@ -3,13 +3,13 @@ package Api;
 import io.qameta.allure.Step;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
-import models.AuthRequestBodyModel;
-import models.AuthResponseModel;
-import models.ErrorResponseModel;
+import models.Auth.AuthRequestBodyModel;
+import models.Auth.AuthResponseModel;
+import models.Auth.ErrorResponseModel;
 
 import static io.restassured.RestAssured.given;
-import static specs.AuthSpecs.invalidInputData;
-import static specs.AuthSpecs.successfulLoginRequestSpec;
+import static specs.Auth.AuthSpecs.invalidInputData;
+import static specs.Auth.AuthSpecs.successfulLoginRequestSpec;
 import static specs.BaseSpecs.baseRequestSpec;
 
 public class ApiAuth {

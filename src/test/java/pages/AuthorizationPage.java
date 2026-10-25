@@ -1,17 +1,11 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
-import static com.codeborne.selenide.WebDriverConditions.urlContaining;
-import static tests.testsdata.TestData.baseUrl;
+import static tests.UI.TestData.baseUrl;
 
 public class AuthorizationPage extends BasePage{
 

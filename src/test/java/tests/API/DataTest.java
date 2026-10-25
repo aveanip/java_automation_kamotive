@@ -1,4 +1,4 @@
-package tests;
+package tests.API;
 
 public class DataTest {
 

@@ -1,4 +1,4 @@
-package tests;
+package tests.utils;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
@@ -9,7 +9,7 @@ import pages.HomePage;
 import supp.SupplyPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static tests.testsdata.TestData.*;
+import static tests.UI.TestData.*;
 
 public class BaseUITest {
     AuthorizationPage authorizationPage = new AuthorizationPage();
