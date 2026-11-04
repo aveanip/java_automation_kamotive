@@ -8,20 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class UsersPage {
-
-    private String pageUrl = "/admin/users";
-    private final SelenideElement buttonCreate = $("[data-testid='AddIcon']");
-    private final SelenideElement fieldLastName = $("[name='lastName']");
-    private final SelenideElement fieldFirstName = $("[name='firstName']");
-    private final SelenideElement fieldLogin = $("[name='login']");
-    private final SelenideElement fieldEmail = $("[name='email']");
-    private final SelenideElement fieldPhone = $("[placeholder='+7 __________']");
-    private final SelenideElement fieldStatus = $(byText("Активировать"));
-    private final SelenideElement organizationField = $("input[role='combobox']");
-    private final SelenideElement buttonSave = $(byText("Сохранить"));
-    private final SelenideElement userRows = $(".host-1cdcmys-MUIDataTable-responsiveBase");
-    private final SelenideElement statusSelectionButton= $(byText("Ожидает активации"));
+public class UsersPage extends BasePage{
 
 
     public UsersPage openPage() {
@@ -115,6 +102,11 @@ public class UsersPage {
     @Step("Проверить Имя")
     public String getFirstName() {
         return fieldFirstName.shouldBe(visible).getValue();
+    }
+
+    @Step("Проверить Статус")
+    public String getStatusUser() {
+        return fieldStatus.shouldBe(visible).getValue();
     }
 
     @Step("Кликнуть на кнопку выбора статуса , и выбрать статус 'Активировать'")

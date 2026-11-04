@@ -102,13 +102,13 @@ public class ApiUser {
                 .spec(deleteUserSpecs);
     }
 
-    @Step("Активация созданного пользователя")
+    @Step("Успешное удаление пользователя")
     public ActionResponse deleteUser (String userId, String token) {
         return given(baseRequestSpec)
                 .header("Authorization", "Bearer " + token)
                 .header("Realm", "kamotive")
                 .contentType(ContentType.JSON)
-                .pathParam("userId", userId)         // Подставляем в URL вместо {userId}
+                .pathParam("userId", userId)
                 .when()
                 .delete("/core/api/v1/users/{userId}")
                 .then()
@@ -117,13 +117,13 @@ public class ApiUser {
                 .as(ActionResponse.class);
     }
 
-    @Step("Активация созданного пользователя")
+    @Step("Удаление несуществующего пользователя")
     public UserCreateRequestWithInvalidLoginModel errorDeleteUser (String userId, String token) {
         return given(baseRequestSpec)
                 .header("Authorization", "Bearer " + token)
                 .header("Realm", "kamotive")
                 .contentType(ContentType.JSON)
-                .pathParam("userId", userId)         // Подставляем в URL вместо {userId}
+                .pathParam("userId", userId)
                 .when()
                 .delete("/core/api/v1/users/{userId}")
                 .then()

@@ -50,8 +50,8 @@ public class AuthTests extends BaseAPITest {
     @DisplayName("Вход с невалидным данными")
     public void loginWithInvalidDataTest() {
         AuthRequestBodyModel loginData = AuthRequestBodyModel.builder()
-                .username("Lk.kamotive")
-                .password("v6x7gM2m5Yu8!")
+                .username("lfuffdjfddg")
+                .password("v6x7gM2m5Yu8!1")
                 .realm("kamotive")
                 .build();
 
@@ -65,7 +65,7 @@ public class AuthTests extends BaseAPITest {
 
             assertThat(errorResponseModel.getMessage())
                     .as("Сообщение должно указывать на то, что пользователь не найден")
-                    .isEqualTo("404 NOT_FOUND \"Пользователь ntstin12 не найден\"");
+                    .isEqualTo("404 NOT_FOUND \"Пользователь lfuffdjfddg не найден\"");
         });
     }
 }
