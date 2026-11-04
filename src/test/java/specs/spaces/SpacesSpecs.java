@@ -37,4 +37,17 @@ public class SpacesSpecs {
             .expectBody("reference.id", notNullValue())
             .expectBody("reference.name", notNullValue())
             .build();
+
+    public static ResponseSpecification shouldReturn404WhenAddingNonExistentUserToSpaceSpecs = new ResponseSpecBuilder()
+            .log(ALL)
+            .expectStatusCode(404)
+            .expectBody("status", notNullValue())
+            .expectBody("message", notNullValue())
+            .build();
+
+    public static ResponseSpecification successfullyDeleteUserFromSpaceSpecs = new ResponseSpecBuilder()
+            .log(ALL)
+            .expectStatusCode(204)
+            .build();
+
 }

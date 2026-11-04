@@ -6,24 +6,20 @@ import models.Auth.AuthResponseModel;
 import models.Auth.ErrorResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static tests.API.DataTest.expectedTokenPath;
 
 public class AuthTests extends BaseAPITest {
 
-    ApiClient api = new ApiClient();
-
     @Test
     @DisplayName("Успешная авторизация с валидными данными")
     public void successfulLoginTest() {
         AuthRequestBodyModel loginData = AuthRequestBodyModel.builder()
-                .username("ntstin125")
-                .password("ztsT1UfMwa6GWsi2)VztsTUfMwa6GWsi2)V1")
+                .username("Lk.kamotive")
+                .password("v6x7gM2m5Yu8!")
                 .realm("kamotive")
                 .build();
-
 
         AuthResponseModel loginResponse = api.auth.login(loginData);
 
@@ -54,8 +50,8 @@ public class AuthTests extends BaseAPITest {
     @DisplayName("Вход с невалидным данными")
     public void loginWithInvalidDataTest() {
         AuthRequestBodyModel loginData = AuthRequestBodyModel.builder()
-                .username("ntstin12")
-                .password("ztsT1UfMwa6GWsi2)VztsTUfMwa6GWsi2)V")
+                .username("Lk.kamotive")
+                .password("v6x7gM2m5Yu8!")
                 .realm("kamotive")
                 .build();
 

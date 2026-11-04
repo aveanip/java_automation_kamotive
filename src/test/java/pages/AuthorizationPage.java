@@ -3,11 +3,11 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
-import static tests.UI.TestData.baseUrl;
 
-public class AuthorizationPage extends BasePage{
+public class AuthorizationPage {
 
     private String pageUrl = "/sign-in/kamotive";
     private final SelenideElement

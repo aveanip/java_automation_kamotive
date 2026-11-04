@@ -1,19 +1,20 @@
-package models.Spaces;
-
+package models.Users;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.List;
+
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ErrorWhenCreatingTheSpaceModel {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class UserCreateRequestWithInvalidLoginModel {
 
     @JsonProperty("status")
     private Integer status;
@@ -21,4 +22,5 @@ public class ErrorWhenCreatingTheSpaceModel {
     @JsonProperty("message")
     private String message;
 
+    private List<ErrorDetail> errors;
 }

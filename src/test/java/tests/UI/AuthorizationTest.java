@@ -3,33 +3,34 @@ package tests.UI;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.AuthorizationPage;
-import tests.utils.BaseUITest;
+import pages.HomePage;
 
+import static io.qameta.allure.Allure.step;
 import static tests.UI.TestData.*;
 
 public class AuthorizationTest extends BaseUITest {
 
-    AuthorizationPage authorizationPage = new AuthorizationPage();
-
-    @Test
-    @DisplayName("Проверка заголовка страницы авторизации")
-    void verifyAuthorizationPageHeaderText() {
-        authorizationPage
-                .openPage()
-                .checkTitleText(title);
-    }
-
     @Test
     @DisplayName("Проверка авторизации валидными данными")
     public void successfulAuthorizationWithValidDataTest() {
-        authorizationPage
-                .openPage()
-                .checkTitleText(title)
-                .login(login, password)
-                .checkHomePageIsOpened()
-                .header.checkFullName(fullUserName);
+        step("Открыть страницу авторизации и проверить заголовок", () -> {
+            authorizationPage
+                    .openPage()
+                    .checkTitleText(title);
+        });
+        step("Ввести валидные данные и выполнить вход", () -> {
+            authorizationPage
+                    .login(login, password)
+                    .checkHomePageIsOpened();
+        });
+        step("Проверить отображение и текст плиток меню на главной странице", () -> {
+            home
+                    .openPage()
+                    .checkHomePageIsOpened()
+                    .checkAllMenuTilesVisible()
+                    .checkMenuTilesText();
+        });
     }
-
 
     @Test
     @DisplayName("Проверка текста ошибки при неверном логине или пароле")

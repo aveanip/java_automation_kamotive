@@ -41,7 +41,7 @@ public class ApiAuth {
                 .as(AuthResponseModel.class);
     }
 
-    @Step("Ошибка при не веерно введенных данных")
+    @Step("Ошибка при не верно введенных данных")
     public ErrorResponseModel invalidLogin(AuthRequestBodyModel loginData) {
         preLoadLoginPage();
         return given(baseRequestSpec)
