@@ -1,6 +1,6 @@
-package tests.API;
+package tests.api;
 
-import Api.ApiClient;
+import api.ApiClient;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 

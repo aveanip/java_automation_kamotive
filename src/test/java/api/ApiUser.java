@@ -1,4 +1,4 @@
-package Api;
+package api;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
@@ -12,7 +12,7 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 import static specs.BaseSpecs.baseRequestSpec;
-import static specs.Users.UsersSpecs.*;
+import static specs.users.UsersSpecs.*;
 
 public class ApiUser {
 

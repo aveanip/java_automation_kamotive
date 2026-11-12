@@ -1,14 +1,14 @@
-package tests.API;
+package tests.api;
 
-import Api.ApiClient;
 import models.Auth.AuthRequestBodyModel;
 import models.Auth.AuthResponseModel;
 import models.Auth.ErrorResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-import static tests.API.DataTest.expectedTokenPath;
+import static tests.api.DataTest.EXPECTED_TOKEN_PATH;
 
 public class AuthTests extends BaseAPITest {
 
@@ -29,12 +29,12 @@ public class AuthTests extends BaseAPITest {
             assertThat(actualRefresh)
                     .as("Refresh токен не должен быть null")
                     .isNotNull()
-                    .startsWith(expectedTokenPath); // обычно "eyJ"
+                    .startsWith(EXPECTED_TOKEN_PATH); // обычно "eyJ"
 
             assertThat(actualAccess)
                     .as("Access токен не должен быть null")
                     .isNotNull()
-                    .startsWith(expectedTokenPath);
+                    .startsWith(EXPECTED_TOKEN_PATH);
 
             // Проверяем тип токена
             assertThat(loginResponse.getTokenType())

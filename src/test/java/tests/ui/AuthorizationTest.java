@@ -1,44 +1,34 @@
-package tests.UI;
+package tests.ui;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.AuthorizationPage;
-import pages.HomePage;
-
 import static io.qameta.allure.Allure.step;
-import static tests.UI.TestData.*;
+import static tests.ui.TestData.*;
 
 public class AuthorizationTest extends BaseUITest {
 
     @Test
     @DisplayName("Проверка авторизации валидными данными")
     public void successfulAuthorizationWithValidDataTest() {
-        step("Открыть страницу авторизации и проверить заголовок", () -> {
             authorizationPage
                     .openPage()
-                    .checkTitleText(title);
-        });
-        step("Ввести валидные данные и выполнить вход", () -> {
-            authorizationPage
-                    .login(login, password)
+                    .checkTitleText(TITLE)
+                    .login(LOGIN, VALID_PASSWORD)
                     .checkHomePageIsOpened();
-        });
-        step("Проверить отображение и текст плиток меню на главной странице", () -> {
             home
                     .openPage()
                     .checkHomePageIsOpened()
                     .checkAllMenuTilesVisible()
                     .checkMenuTilesText();
-        });
     }
 
     @Test
     @DisplayName("Проверка текста ошибки при неверном логине или пароле")
     void wrongCredentialsAuthorization() {
         authorizationPage.openPage()
-                .login(invalidLogin, invalidPassword);
+                .login(INVALID_LOGIN, INVALID_PASSWORD);
         authorizationPage.checkAuthoruzationPageIsOpened()
-                .checkErrorMessage(errorText);
+                .checkErrorMessage(ERROR_TEXT);
     }
 
 }

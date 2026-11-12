@@ -1,8 +1,10 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
@@ -18,61 +20,49 @@ public class AuthorizationPage {
             signInButton = $(".host-1ctxyfa-buttons"),
             errorMessage = $(".host-1m94vb6-errorMessage");
 
+    @Step("Открытие страницы авторизации")
     public AuthorizationPage openPage() {
         open(pageUrl);
         checkAuthoruzationPageIsOpened();
         return this;
     }
-
+    @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));
         authorizationForm.shouldBe(visible);
-
         return this;
     }
-
-//    public AuthorizationPage checkPageDisappeared() {
-//        webdriver().shouldNotHave(urlContaining(pageUrl));
-//        authorizationForm.should(disappear);
-//        return this;
-//    }
-
+    @Step("Проверка заголовка: '{value}'")
     public AuthorizationPage checkTitleText(String value) {
         loginFromTitle.shouldHave(text(value));
-
         return this;
     }
-
+    @Step("Ввод логина пользователя: '{value}'")
     public AuthorizationPage typeuserName(String value) {
         userNameInput.setValue(value);
-
         return this;
     }
-
+    @Step("Ввод пароля")
     public AuthorizationPage typepassword(String value) {
         passswordNameInput.setValue(value);
-
         return this;
     }
-
+    @Step("Выполнение входа пользователя '{userName}'")
     public HomePage login (String userName, String password){
         typeuserName(userName);
         typepassword(password);
         clickButton();
-
         return new HomePage();
     }
 
-
+    @Step("Нажатие на кнопку входа")
     public AuthorizationPage clickButton() {
         signInButton.click();
-
         return this;
     }
-
+    @Step("Проверка сообщения об ошибке: '{message}'")
     public AuthorizationPage checkErrorMessage(String message) {
         errorMessage.shouldHave(text(message));
-
         return this;
     }
 

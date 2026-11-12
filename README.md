@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="notifications/kamotive.jpg" width="500" alt="Kamotive Logo"/>
+  <img src="screenshots/kamotive.jpg" width="500" alt="Kamotive Logo"/>
   <h1>Проект по автоматизации тестирования API и UI платформы Kamotive</h1>
   <p>Автоматизированные API-тесты (Java + RestAssured) для цифровой платформы совместной разработки</p>
   <p>🔗 <a href="https://kamotive.ru" target="_blank">Перейти на сайт kamotive.ru</a></p>
@@ -51,7 +51,7 @@
 📁 java_automation_kamotive
 src/test/java/
 ├── allure/                 # Настройки и утилиты для Allure
-├── Api/                    # API-клиенты и запросы
+├── api/                    # API-клиенты и запросы
 ├── helpers/                # Вспомогательные классы (Attach)
 ├── models/                 # Модели данных
 ├── pages/                  # Page Object Model (страницы UI)

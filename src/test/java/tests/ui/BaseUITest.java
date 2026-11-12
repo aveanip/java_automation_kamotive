@@ -1,6 +1,5 @@
-package tests.UI;
+package tests.ui;
 
-import Api.ApiClient;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
@@ -13,16 +12,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.AuthorizationPage;
 import pages.HomePage;
-
-
 import java.util.List;
 import java.util.Map;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static tests.UI.TestData.*;
 
 public class BaseUITest {
-    ApiClient api = new ApiClient();
     AuthorizationPage authorizationPage = new AuthorizationPage();
     HomePage home = new HomePage();
 

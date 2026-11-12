@@ -5,17 +5,30 @@ import io.qameta.allure.Step;
 import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class UsersPage extends BasePage{
+public class UsersPage{
+    private static final String pageUrl = "/admin/users";
+    private static final SelenideElement buttonCreate = $("[data-testid='AddIcon']");
+    private static final SelenideElement fieldLastName = $("[name='lastName']");
+    private static final SelenideElement fieldFirstName = $("[name='firstName']");
+    private static final SelenideElement fieldLogin = $("[name='login']");
+    private static final SelenideElement fieldEmail = $("[name='email']");
+    private static final SelenideElement fieldPhone = $("[placeholder='+7 __________']");
+    private static final SelenideElement fieldStatus = $("[data-value='ENABLED']");
+    private static final SelenideElement organizationField = $("input[role='combobox']");
+    private static final SelenideElement buttonSave = $(byText("Сохранить"));
+    private static final SelenideElement userRows = $(".host-1cdcmys-MUIDataTable-responsiveBase");
+    private static final SelenideElement statusSelectionButton = $(byText("Ожидает активации"));
+    private static final SelenideElement theTitleTextOfTheModalWindow = $(byText("Регистрация нового пользователя"));
 
 
+    @Step("Открытие страницы пользователей")
     public UsersPage openPage() {
         open(pageUrl);
         return this;
     }
-
+    @Step("Нажатие на кнопку создания пользователя")
     public UsersPage clickButtonCreateUser() {
         buttonCreate.click();
         return this;
@@ -23,7 +36,7 @@ public class UsersPage extends BasePage{
 
     @Step("Проверить текст заголовка на модальном окне")
     public UsersPage checkTheTitle() {
-        $(byText("Регистрация нового пользователя")).shouldBe(visible);
+        theTitleTextOfTheModalWindow.shouldBe(visible);
         return this;
     }
 
@@ -75,7 +88,7 @@ public class UsersPage extends BasePage{
 
     @Step("Проверить, что модальное окно закрылось")
     public void checkModalClosed() {
-        $(byText("Регистрация нового пользователя")).shouldNotBe(visible);
+        theTitleTextOfTheModalWindow.shouldNotBe(visible);
     }
 
     @Step("Проверить, что пользователь '{login}' появился в списке")
