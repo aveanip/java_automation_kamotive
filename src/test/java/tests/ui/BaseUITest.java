@@ -58,13 +58,6 @@ public class BaseUITest {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(false));
-            // Настраиваем русский язык для браузера
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--lang=ru-RU");
-            options.setExperimentalOption("prefs", Map.of(
-                    "intl.accept_languages", "ru-RU,ru",
-                    "intl.selected_languages", "ru-RU,ru"
-            ));
     }
 
     @AfterEach
