@@ -57,10 +57,6 @@ public class BaseUITest {
 
     @BeforeEach
     public void setUp() {
-                open("/");
-                executeJavaScript("localStorage.setItem('i18nextLng', 'ru');");
-                Selenide.closeWebDriver();
-
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(false));
