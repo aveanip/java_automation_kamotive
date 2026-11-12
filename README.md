@@ -82,7 +82,7 @@ src/test/java/
 
 ## 📊 Отчёты и CI/CD
 - **Jenkins Build**: [Ссылка на джобу в Jenkins](https://jenkins.qa.guru/job/aveanip_diplom/)
-- **Allure Report**: [Последний отчёт Allure](https://jenkins.qa.guru/job/aveanip_diplom/16/allure/)
+- **Allure Report**: [Последний отчёт Allure](https://jenkins.qa.guru/job/aveanip_diplom/18/)
 - **Allure TestOps**: [Проект в Allure TestOps](https://allure.qa.guru/project/5436/test-cases)
 
 **Запуск всех тестов:**
