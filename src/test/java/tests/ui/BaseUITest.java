@@ -1,6 +1,7 @@
 package tests.ui;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -14,7 +15,8 @@ import pages.AuthorizationPage;
 import pages.HomePage;
 import java.util.List;
 import java.util.Map;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+
+import static com.codeborne.selenide.Selenide.*;
 
 public class BaseUITest {
     AuthorizationPage authorizationPage = new AuthorizationPage();
@@ -55,10 +57,14 @@ public class BaseUITest {
 
     @BeforeEach
     public void setUp() {
+                open("/");
+                executeJavaScript("localStorage.setItem('i18nextLng', 'ru');");
+                Selenide.closeWebDriver();
+
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(false));
-    }
+            }
 
     @AfterEach
     void tearDown() {

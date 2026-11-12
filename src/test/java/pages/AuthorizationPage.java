@@ -26,32 +26,12 @@ public class AuthorizationPage {
     private final SelenideElement languageSwitcher = $(".MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiInput-input host-1ucafs9-select");
     private final SelenideElement ruOption = $("div[role='listbox'] li");
 
-
     @Step("Открытие страницы авторизации")
     public AuthorizationPage openPage() {
-        open("/sign-in/kamotive");
-        ensureRussianLanguage();
+        open(pageUrl);
+        checkAuthoruzationPageIsOpened();
         return this;
     }
-
-    private void ensureRussianLanguage() {
-        pageTitle.shouldBe(visible);
-
-        if (pageTitle.text().contains("Login to Kamotive portal")) {
-            languageSwitcher.shouldBe(visible).click();
-            ruOption.shouldBe(visible).click();
-            pageTitle.shouldHave(text("Вход в портал Камотив"), Duration.ofSeconds(10));
-            refresh();
-        }
-    }
-
-
-//    @Step("Открытие страницы авторизации")
-//    public AuthorizationPage openPage() {
-//        open(pageUrl);
-//        checkAuthoruzationPageIsOpened();
-//        return this;
-//    }
     @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));
