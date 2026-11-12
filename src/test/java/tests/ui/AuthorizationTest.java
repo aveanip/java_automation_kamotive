@@ -6,7 +6,6 @@ import static io.qameta.allure.Allure.step;
 import static tests.ui.TestData.*;
 
 public class AuthorizationTest extends BaseUITest {
-
     @Test
     @DisplayName("Проверка авторизации валидными данными")
     public void successfulAuthorizationWithValidDataTest() {
