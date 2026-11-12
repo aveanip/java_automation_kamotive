@@ -35,16 +35,10 @@ public class AuthorizationPage {
         if (pageTitle.text().contains("Login to Kamotive")) {
             executeJavaScript("localStorage.setItem('i18nextLng', 'ru');");
             refresh();
-            pageTitle.shouldHave(text("Вход в портал Камотив"), Duration.ofSeconds(10));
+            pageTitle.shouldHave(text("Вход в портал Kamotive"), Duration.ofSeconds(10));
         }
     }
 
-//    @Step("Открытие страницы авторизации")
-//    public AuthorizationPage openPage() {
-//        open(pageUrl);
-//        checkAuthoruzationPageIsOpened();
-//        return this;
-//    }
     @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));
