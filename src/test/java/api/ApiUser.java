@@ -3,10 +3,10 @@ package api;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
-import models.Users.ActionResponse;
-import models.Users.UserCreateRequestModel;
-import models.Users.UserCreateRequestWithInvalidLoginModel;
-import models.Users.UserCreateResponseModel;
+import models.users.ActionResponse;
+import models.users.UserCreateRequestModel;
+import models.users.UserCreateRequestWithInvalidLoginModel;
+import models.users.UserCreateResponseModel;
 
 import java.io.File;
 
@@ -103,7 +103,7 @@ public class ApiUser {
     }
 
     @Step("Успешное удаление пользователя")
-    public ActionResponse deleteUser (String userId, String token) {
+    public ActionResponse deleteUser(String userId, String token) {
         return given(baseRequestSpec)
                 .header("Authorization", "Bearer " + token)
                 .header("Realm", "kamotive")
@@ -118,7 +118,7 @@ public class ApiUser {
     }
 
     @Step("Удаление несуществующего пользователя")
-    public UserCreateRequestWithInvalidLoginModel errorDeleteUser (String userId, String token) {
+    public UserCreateRequestWithInvalidLoginModel errorDeleteUser(String userId, String token) {
         return given(baseRequestSpec)
                 .header("Authorization", "Bearer " + token)
                 .header("Realm", "kamotive")

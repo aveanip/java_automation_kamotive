@@ -1,4 +1,4 @@
-package models.Users;
+package models.users;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
@@ -9,9 +9,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ErrorDetail {
-
-    private String field;
-    private String message;
+public class ActionResponse {
+    private Boolean success;
+    private String errorCode;
+    private String errorMessage;
+    private Metadata metadata;
 }
-

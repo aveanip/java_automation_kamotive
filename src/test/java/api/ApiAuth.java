@@ -3,14 +3,14 @@ package api;
 import io.qameta.allure.Step;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
-import models.Auth.AuthRequestBodyModel;
-import models.Auth.AuthResponseModel;
-import models.Auth.ErrorResponseModel;
+import models.auth.AuthRequestBodyModel;
+import models.auth.AuthResponseModel;
+import models.auth.ErrorResponseModel;
 
 import static io.restassured.RestAssured.given;
+import static specs.BaseSpecs.baseRequestSpec;
 import static specs.auth.AuthSpecs.invalidInputData;
 import static specs.auth.AuthSpecs.successfulLoginRequestSpec;
-import static specs.BaseSpecs.baseRequestSpec;
 
 public class ApiAuth {
     private final SessionFilter sessionFilter = new SessionFilter();
@@ -24,7 +24,6 @@ public class ApiAuth {
                 .then()
                 .statusCode(200);
     }
-
 
     @Step("Авторизация и получение токена")
     public AuthResponseModel login(AuthRequestBodyModel loginData) {

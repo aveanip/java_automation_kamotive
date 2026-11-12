@@ -1,8 +1,8 @@
 package tests.api;
 
-import models.Auth.AuthRequestBodyModel;
-import models.Auth.AuthResponseModel;
-import models.Auth.ErrorResponseModel;
+import models.auth.AuthRequestBodyModel;
+import models.auth.AuthResponseModel;
+import models.auth.ErrorResponseModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

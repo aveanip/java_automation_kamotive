@@ -1,4 +1,4 @@
-package models.Auth;
+package models.auth;
 
 
 import lombok.AllArgsConstructor;

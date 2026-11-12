@@ -1,13 +1,14 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import models.Users.UserCreateRequestModel;
+import models.users.UserCreateRequestModel;
 
 import java.util.Locale;
 
 public class TestDataGenerator {
     private static final Faker faker = new Faker(new Locale("ru"));
     private static final Faker enFaker = new Faker(new Locale("en"));
+
     public static UserCreateRequestModel generateValidUser() {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();

@@ -2,12 +2,14 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+
 import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class UsersPage{
+public class UsersPage {
     private static final String pageUrl = "/admin/users";
     private static final SelenideElement buttonCreate = $("[data-testid='AddIcon']");
     private static final SelenideElement fieldLastName = $("[name='lastName']");
@@ -28,6 +30,7 @@ public class UsersPage{
         open(pageUrl);
         return this;
     }
+
     @Step("Нажатие на кнопку создания пользователя")
     public UsersPage clickButtonCreateUser() {
         buttonCreate.click();
@@ -100,10 +103,10 @@ public class UsersPage{
 
     @Step("Выбрать первого пользователя в списке")
     public UsersPage clickFirstUserInTheList(String firstName, String lastName) {
-            String fullName = lastName + " " + firstName;
-            $(byText(fullName))
-                    .shouldBe(visible)
-                    .click();
+        String fullName = lastName + " " + firstName;
+        $(byText(fullName))
+                .shouldBe(visible)
+                .click();
         return this;
     }
 

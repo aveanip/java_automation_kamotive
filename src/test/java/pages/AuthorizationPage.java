@@ -1,9 +1,7 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 
 import java.time.Duration;
 
@@ -30,6 +28,7 @@ public class AuthorizationPage {
         open(pageUrl);
         ensureRussianLanguage();
     }
+
     private void ensureRussianLanguage() {
         pageTitle.shouldBe(visible);
         if (pageTitle.text().contains("Login to Kamotive")) {
@@ -45,23 +44,27 @@ public class AuthorizationPage {
         authorizationForm.shouldBe(visible);
         return this;
     }
+
     @Step("Проверка заголовка: '{value}'")
     public AuthorizationPage checkTitleText(String value) {
         loginFromTitle.shouldHave(text(value));
         return this;
     }
+
     @Step("Ввод логина пользователя: '{value}'")
     public AuthorizationPage typeuserName(String value) {
         userNameInput.setValue(value);
         return this;
     }
+
     @Step("Ввод пароля")
     public AuthorizationPage typepassword(String value) {
         passswordNameInput.setValue(value);
         return this;
     }
+
     @Step("Выполнение входа пользователя '{userName}'")
-    public HomePage login (String userName, String password){
+    public HomePage login(String userName, String password) {
         typeuserName(userName);
         typepassword(password);
         clickButton();
@@ -73,6 +76,7 @@ public class AuthorizationPage {
         signInButton.click();
         return this;
     }
+
     @Step("Проверка сообщения об ошибке: '{message}'")
     public AuthorizationPage checkErrorMessage(String message) {
         errorMessage.shouldHave(text(message));

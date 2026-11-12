@@ -2,24 +2,24 @@ package tests.ui;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static io.qameta.allure.Allure.step;
+
 import static tests.ui.TestData.*;
 
 public class AuthorizationTest extends BaseUITest {
     @Test
     @DisplayName("Проверка авторизации валидными данными")
     public void successfulAuthorizationWithValidDataTest() {
-            authorizationPage
-                    .openPage();
         authorizationPage
-                    .checkTitleText(TITLE)
-                    .login(LOGIN, VALID_PASSWORD)
-                    .checkHomePageIsOpened();
-            home
-                    .openPage()
-                    .checkHomePageIsOpened()
-                    .checkAllMenuTilesVisible()
-                    .checkMenuTilesText();
+                .openPage();
+        authorizationPage
+                .checkTitleText(TITLE)
+                .login(LOGIN, VALID_PASSWORD)
+                .checkHomePageIsOpened();
+        home
+                .openPage()
+                .checkHomePageIsOpened()
+                .checkAllMenuTilesVisible()
+                .checkMenuTilesText();
     }
 
     @Test

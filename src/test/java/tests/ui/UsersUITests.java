@@ -1,14 +1,14 @@
 package tests.ui;
 
-import models.Users.UserCreateRequestModel;
+import models.users.UserCreateRequestModel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.UsersPage;
 
-import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 import static tests.TestDataGenerator.generateValidUser;
-import static tests.ui.TestData.*;
+import static tests.ui.TestData.LOGIN;
+import static tests.ui.TestData.VALID_PASSWORD;
 
 public class UsersUITests extends BaseUITest {
     UsersPage user = new UsersPage();

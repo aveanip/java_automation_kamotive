@@ -3,14 +3,16 @@ package pages;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+
 import java.util.List;
+
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 
-public class HomePage  {
+public class HomePage {
     private String pageUrl = "/index";
     private SelenideElement menuPageContainer = $(".host-q6svxr-root");
     private ElementsCollection menuTiles = $$(".host-1b4i6d1-tileButton");
