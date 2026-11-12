@@ -10,7 +10,8 @@ public class HomePageTests extends BaseUITest{
     @Description("Проверка отображения меню на главной странице после авторизации (UI)")
     public void testMenuDisplayedAfterLogin() {
             authorizationPage
-                    .openPage()
+                    .openPage();
+            authorizationPage
                     .login(LOGIN, VALID_PASSWORD)
                     .checkHomePageIsOpened();
                 home.openPage()

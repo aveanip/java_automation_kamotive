@@ -18,7 +18,8 @@ public class UsersUITests extends BaseUITest {
     @DisplayName("Создание пользователя через UI")
     public void successfulAuthorizationWithValidDataTest() {
         authorizationPage
-                .openPage()
+                .openPage();
+        authorizationPage
                 .login(LOGIN, VALID_PASSWORD)
                 .checkHomePageIsOpened();
         user
@@ -47,7 +48,8 @@ public class UsersUITests extends BaseUITest {
         String phone = newUser.getPhoneNumber();
         String orgName = "ПАО \"КАМАЗ\"";
         authorizationPage
-                .openPage()
+                .openPage();
+        authorizationPage
                 .login(LOGIN, VALID_PASSWORD)
                 .checkHomePageIsOpened();
         user
