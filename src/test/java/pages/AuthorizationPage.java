@@ -23,6 +23,9 @@ public class AuthorizationPage {
             signInButton = $(".host-1ctxyfa-buttons"),
             errorMessage = $(".host-1m94vb6-errorMessage");
     private final SelenideElement pageTitle = $("h3.MuiTypography-h3");
+    private final SelenideElement languageSwitcher = $(".MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiInput-input host-1ucafs9-select");
+    private final SelenideElement ruOption = $("div[role='listbox'] li");
+
 
     @Step("Открытие страницы авторизации")
     public AuthorizationPage openPage() {
@@ -30,15 +33,18 @@ public class AuthorizationPage {
         ensureRussianLanguage();
         return this;
     }
+
     private void ensureRussianLanguage() {
-        pageTitle.shouldBe(visible, Duration.ofSeconds(10));
+        pageTitle.shouldBe(visible);
+
         if (pageTitle.text().contains("Login to Kamotive portal")) {
-            $$(By.xpath("//*[text()='RU']")).first()
-                    .shouldBe(visible)
-                    .click();
-            pageTitle.shouldHave(text("Вход в портал Камотив"));
+            languageSwitcher.shouldBe(visible).click();
+            ruOption.shouldBe(visible).click();
+            pageTitle.shouldHave(text("Вход в портал Камотив"), Duration.ofSeconds(10));
+            refresh();
         }
     }
+
 
 //    @Step("Открытие страницы авторизации")
 //    public AuthorizationPage openPage() {
