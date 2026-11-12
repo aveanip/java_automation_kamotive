@@ -65,15 +65,25 @@ src/test/java/
 ```
 
 Скриншот 1. Allure отчет API-теста "Добавление аватара пользователю API"
-<img src="notifications/test-example.png" alt="Allure Report" width="600">
+<img src="screenshots/test-example.png" alt="Allure Report" width="600">
 
 Скриншот 2. Allure отчет UI-теста "Проверка авторизации пользователя"
-<img src="notifications/test_UI.png" alt="Allure Report" width="600">
+<img src="screenshots/test_UI.png" alt="Allure Report" width="600">
 
 Скриншот 3. Пример Allure отчета
-<img src="notifications/allure report.png" alt="Allure Report" width="600">
+<img src="screenshots/allurereport.png" alt="Allure Report" width="600">
+
+Скриншот 4. Пример Dashboard в TestOps
+<img src="screenshots/dashboards.png" alt="Allure Report" width="600">
+
+Скриншот 5. Пример ручного теста
+<img src="screenshots/пример ручного теста.png" alt="Allure Report" width="600">
 
 
+## 📊 Отчёты и CI/CD
+- **Jenkins Build**: [Ссылка на джобу в Jenkins](https://jenkins.qa.guru/job/aveanip_diplom/)
+- **Allure Report**: [Последний отчёт Allure](https://jenkins.qa.guru/job/aveanip_diplom/16/allure/)
+- **Allure TestOps**: [Проект в Allure TestOps](https://allure.qa.guru/project/5436/test-cases)
 
 **Запуск всех тестов:**
 ```bash
