@@ -2,6 +2,9 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -19,13 +22,30 @@ public class AuthorizationPage {
             passswordNameInput = $("input[type='password']"),
             signInButton = $(".host-1ctxyfa-buttons"),
             errorMessage = $(".host-1m94vb6-errorMessage");
+    private final SelenideElement pageTitle = $("h3.MuiTypography-h3");
 
     @Step("Открытие страницы авторизации")
     public AuthorizationPage openPage() {
-        open(pageUrl);
-        checkAuthoruzationPageIsOpened();
+        open("/sign-in/kamotive");
+        ensureRussianLanguage();
         return this;
     }
+    private void ensureRussianLanguage() {
+        pageTitle.shouldBe(visible, Duration.ofSeconds(10));
+        if (pageTitle.text().contains("Login to Kamotive portal")) {
+            $$(By.xpath("//*[text()='EN']")).first()
+                    .shouldBe(visible)
+                    .click();
+            pageTitle.shouldHave(text("Вход в портал Камотив"));
+        }
+    }
+
+//    @Step("Открытие страницы авторизации")
+//    public AuthorizationPage openPage() {
+//        open(pageUrl);
+//        checkAuthoruzationPageIsOpened();
+//        return this;
+//    }
     @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));
