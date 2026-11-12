@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -23,15 +24,27 @@ public class AuthorizationPage {
             signInButton = $(".host-1ctxyfa-buttons"),
             errorMessage = $(".host-1m94vb6-errorMessage");
     private final SelenideElement pageTitle = $("h3.MuiTypography-h3");
-    private final SelenideElement languageSwitcher = $(".MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiInput-input host-1ucafs9-select");
-    private final SelenideElement ruOption = $("div[role='listbox'] li");
 
     @Step("Открытие страницы авторизации")
-    public AuthorizationPage openPage() {
+    public void openPage() {
         open(pageUrl);
-        checkAuthoruzationPageIsOpened();
-        return this;
+        ensureRussianLanguage();
     }
+    private void ensureRussianLanguage() {
+        pageTitle.shouldBe(visible);
+        if (pageTitle.text().contains("Login to Kamotive")) {
+            executeJavaScript("localStorage.setItem('i18nextLng', 'ru');");
+            refresh();
+            pageTitle.shouldHave(text("Вход в портал Камотив"), Duration.ofSeconds(10));
+        }
+    }
+
+//    @Step("Открытие страницы авторизации")
+//    public AuthorizationPage openPage() {
+//        open(pageUrl);
+//        checkAuthoruzationPageIsOpened();
+//        return this;
+//    }
     @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));

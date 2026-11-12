@@ -10,7 +10,8 @@ public class AuthorizationTest extends BaseUITest {
     @DisplayName("Проверка авторизации валидными данными")
     public void successfulAuthorizationWithValidDataTest() {
             authorizationPage
-                    .openPage()
+                    .openPage();
+        authorizationPage
                     .checkTitleText(TITLE)
                     .login(LOGIN, VALID_PASSWORD)
                     .checkHomePageIsOpened();
@@ -24,7 +25,9 @@ public class AuthorizationTest extends BaseUITest {
     @Test
     @DisplayName("Проверка текста ошибки при неверном логине или пароле")
     void wrongCredentialsAuthorization() {
-        authorizationPage.openPage()
+        authorizationPage
+                .openPage();
+        authorizationPage
                 .login(INVALID_LOGIN, INVALID_PASSWORD);
         authorizationPage.checkAuthoruzationPageIsOpened()
                 .checkErrorMessage(ERROR_TEXT);
