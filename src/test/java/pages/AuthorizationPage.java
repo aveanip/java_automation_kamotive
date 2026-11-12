@@ -33,19 +33,19 @@ public class AuthorizationPage {
     private void ensureRussianLanguage() {
         pageTitle.shouldBe(visible, Duration.ofSeconds(10));
         if (pageTitle.text().contains("Login to Kamotive portal")) {
-            $$(By.xpath("//*[text()='EN']")).first()
+            $$(By.xpath("//*[text()='RU']")).first()
                     .shouldBe(visible)
                     .click();
             pageTitle.shouldHave(text("Вход в портал Камотив"));
         }
     }
 
-//    @Step("Открытие страницы авторизации")
-//    public AuthorizationPage openPage() {
-//        open(pageUrl);
-//        checkAuthoruzationPageIsOpened();
-//        return this;
-//    }
+    @Step("Открытие страницы авторизации")
+    public AuthorizationPage openPage() {
+        open(pageUrl);
+        checkAuthoruzationPageIsOpened();
+        return this;
+    }
     @Step("Проверка, что страница авторизации открыта")
     public AuthorizationPage checkAuthoruzationPageIsOpened() {
         webdriver().shouldHave(url(baseUrl + pageUrl));
