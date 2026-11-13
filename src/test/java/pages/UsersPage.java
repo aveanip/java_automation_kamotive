@@ -67,6 +67,7 @@ public class UsersPage {
         return this;
     }
 
+    @Step("Ввод номер телефона: {phoneNumber}")
     public UsersPage setPhoneNumber(String phoneNumber) {
         fieldPhone.setValue(phoneNumber);
         return this;

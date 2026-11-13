@@ -72,7 +72,7 @@ public class ApiUser {
                 .when()
                 .put("/core/api/v1/users/{userId}/status/{statusId}")
                 .then()
-                .spec(activationUserSpecs)
+                .spec(response200Specs)
                 .extract()
                 .as(ActionResponse.class);
     }
@@ -87,7 +87,7 @@ public class ApiUser {
                 .when()
                 .post("/core/api/v1/users/{userId}/avatar")
                 .then()
-                .spec(avatarUserSpecs);
+                .spec(response200Specs);
     }
 
     @Step("Удаление аватара для пользователя {userId}")
@@ -99,7 +99,7 @@ public class ApiUser {
                 .when()
                 .delete("/core/api/v1/users/{userId}/avatar")
                 .then()
-                .spec(deleteUserSpecs);
+                .spec(response200Specs);
     }
 
     @Step("Успешное удаление пользователя")
@@ -112,7 +112,7 @@ public class ApiUser {
                 .when()
                 .delete("/core/api/v1/users/{userId}")
                 .then()
-                .spec(successfullyDeleteUserSpecs)
+                .spec(response200Specs)
                 .extract()
                 .as(ActionResponse.class);
     }

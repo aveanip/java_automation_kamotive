@@ -38,11 +38,7 @@ public class UsersSpecs {
             .expectBody("message", notNullValue())
             .build();
 
-    public static ResponseSpecification activationUserSpecs = new ResponseSpecBuilder()
-            .log(ALL)
-            .expectStatusCode(200)
-            .build();
-    public static ResponseSpecification successfullyDeleteUserSpecs = new ResponseSpecBuilder()
+    public static ResponseSpecification response200Specs = new ResponseSpecBuilder()
             .log(ALL)
             .expectStatusCode(200)
             .build();
@@ -51,15 +47,5 @@ public class UsersSpecs {
             .log(ALL)
             .expectStatusCode(404)
             .expectBody("status", notNullValue())
-
-            .build();
-    public static ResponseSpecification avatarUserSpecs = new ResponseSpecBuilder()
-            .log(ALL)
-            .expectStatusCode(200)
-            .build();
-
-    public static ResponseSpecification deleteUserSpecs = new ResponseSpecBuilder()
-            .log(ALL)
-            .expectStatusCode(200)
             .build();
 }
