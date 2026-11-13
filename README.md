@@ -64,10 +64,12 @@ src/test/java/
 └── 📄 README.md            # Документация
 ```
 
-Скриншот 1. Allure отчет API-теста "Добавление аватара пользователю API"
+Скриншот 1. Allure отчет API-теста 
+Пример: "Добавление аватара пользователю API"
 <img src="screenshots/test-example.png" alt="Allure Report" width="600">
 
-Скриншот 2. Allure отчет UI-теста "Проверка авторизации пользователя"
+Скриншот 2. Allure отчет UI-теста 
+Пример: "Проверка авторизации пользователя"
 <img src="screenshots/test_UI.png" alt="Allure Report" width="600">
 
 Скриншот 3. Пример Allure отчета
